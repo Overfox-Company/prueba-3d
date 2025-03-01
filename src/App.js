@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import { useLayoutEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { easing } from 'maath'
 import { applyProps, Canvas, useFrame } from '@react-three/fiber'
 import {
@@ -22,14 +22,32 @@ import { Worbench } from './Workbench'
 import { Shelf } from './Shelf'
 import { Box } from './Box'
 
-
 export default function App() {
   const [degraded, degrade] = useState(false)
+  const [escenary, setEscenary] = useState(0)
+  useEffect(() => {
 
-  return (
-    <Canvas shadows camera={{ position: [5, 0, 15], fov: 60 }} style={{ backgroundColor: "rgb(88, 88, 116)" }}>
+  }, [console.log(escenary)])
+  return (<div style={{ position: "relative", backgroundColor: "green", height: "100vh" }}>
+    <div
+      style={{
+        width: 40,
+        height: 40,
+        backgroundColor: "red",
+        position: "fixed",
+        top: 20,
+        left: 20,
+        zIndex: 99,
 
+      }}
+      onClick={() => setEscenary(escenary + 1)}
+    >
 
+    </div>
+    <Canvas shadows
+      camera={{ position: [escenary, 0, 15], fov: 60 }}
+      style={{ backgroundColor: "rgb(88, 88, 116)" }}>
+      <spotLight position={[0, 15, 0]} angle={0.3} penumbra={1} castShadow intensity={2} shadow-bias={-0.0001} />
       <ambientLight intensity={0.6} />
       {/*<Porsche scale={1.6} position={[-0.5, -0.18, 0]} rotation={[0, Math.PI / 5, 0]} />
       <AccumulativeShadows position={[-0.5, -0.18, 0]} frames={100} alphaTest={0.9} scale={10}>
@@ -37,7 +55,7 @@ export default function App() {
       </AccumulativeShadows>*/}
       <Car />
       <Worbench />
-      <Shelf />
+      {    /*<Shelf />*/}
       <Box />
       <AccumulativeShadows position={[0, -0.5, 0]} scale={20} frames={100} alphaTest={0.9}>
         <RandomizedLight amount={8} radius={1} ambient={0.6} position={[1, 5, -1]} />
@@ -49,6 +67,8 @@ export default function App() {
       <OrbitControls />
       <CameraRig />
     </Canvas>
+  </div>
+
   )
 }
 

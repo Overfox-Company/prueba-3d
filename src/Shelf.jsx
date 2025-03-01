@@ -94,24 +94,13 @@ export function Shelf(props) {
         <mesh geometry={nodes.can_open001.geometry} material={materials['can_metal.001']} />
         <mesh geometry={nodes.can_open001_1.geometry} material={materials['can_sticker.001']} />
       </group>
-
-
-      {nodes?.Shelf_holders001 && materials?.['rusted metal _ green.001'] && (
-        <mesh
-          geometry={nodes.Shelf_holders001.geometry}
-          material={materials['rusted metal _ green.001']}
-          position={[-2.316, -0.49, 3.45]}
-          rotation={[0, 1.551, 0]}
-        />
-      )}
-      {nodes?.Shelf_plate001 && materials?.['rusted_metal_Less.001'] && (
-        <mesh
-          geometry={nodes.Shelf_plate001.geometry}
-          material={materials['rusted_metal_Less.001']}
-          position={[-2.682, -0.369, 2.432]}
-          rotation={[0, 1.551, 0]}
-        />
-      )}  </group>
+      <mesh geometry={nodes.Shelf_holders001.geometry} material={materials['rusted metal _ green.001']} position={[-2.316, -0.49, 3.45]} rotation={[0, 1.551, 0]} />
+      <mesh geometry={nodes.Shelf_plate001.geometry} material={materials['rusted metal Less.001']} position={[-2.682, -0.369, 2.432]} rotation={[0, 1.551, 0]} />
+      <mesh geometry={nodes.cardboard_box005.geometry} material={materials['cardboard box.001']} position={[-2.72, 0.141, 2.05]} rotation={[-Math.PI, 0.025, -Math.PI]} />
+      <mesh geometry={nodes.cardboard_box004.geometry} material={materials['cardboard box.001']} position={[-2.73, 0.141, 3.079]} rotation={[0, 1.562, 0]} />
+      <mesh geometry={nodes.cardboard_box002.geometry} material={materials['cardboard box.001']} position={[-2.759, 0.635, 1.824]} rotation={[0, -1.328, 0]} />
+      <mesh geometry={nodes.cardboard_box_large002.geometry} material={materials['cardboard box_large.001']} position={[-2.381, 1.142, 2.049]} rotation={[0, 0.551, 0]} />
+    </group>
   )
 }
 
